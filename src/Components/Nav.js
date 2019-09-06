@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Nav = (props) => {
-  return (
-    <nav className="main-nav">
-      <ul>
-        <li><NavLink to='/cats'>Cats</NavLink></li>
-        <li><NavLink to='/dogs'>Dogs</NavLink></li>
-        <li><NavLink to='/computers'>Computers</NavLink></li>
-      </ul>
-    </nav>
-  )
+class Nav extends Component {
+    performSearch = (event) => {
+        this.props.performSearch(event.target.innerText);
+    }
+
+    render() {
+        return (
+            <nav className="main-nav" >
+                <ul>
+                    <li><NavLink to='/search/cats' onClick={this.performSearch}>Cats</NavLink></li>
+                    <li><NavLink to='/search/dogs' onClick={this.performSearch} >Dogs</NavLink></li>
+                    <li><NavLink to='/search/monkeys' onClick={this.performSearch}>Monkeys</NavLink></li>
+                    <li><NavLink to='/search/squirrels' onClick={this.performSearch}>Squirrels</NavLink></li>
+
+                </ul>
+            </nav>
+        )
+    }
 }
 
 export default Nav;

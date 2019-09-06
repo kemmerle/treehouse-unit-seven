@@ -1,47 +1,28 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-
+import React from 'react';
+import NotFound from './NotFound';
 import Photo from './Photo';
 
-class PhotoContainer extends Component {
-  state = {
-    photos: [],
-    loading: true
-  };
+const PhotoContainer = props => {
+    const photoData = props.photos;
+    let photoArray;
 
-  performSearch = (apiKey, tag) => {
-    axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tag}&per_page=24&format=json&nojsoncallback=1`)
-      .then(response => {
-        this.setState({
-          photos: response.data.photos.photo,
-          loading: false
-        });
-      })
-      .catch(error => {
-         console.log('Error fetching and parsing data', error);
-      });
-  }
+    if (photoData.length > 0) {
+        photoArray = photoData.map(photo =>
+          <Photo
+            key={photo.id}
+            url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
+            alt=""/>
+          )
+    } else {
+        photoArray = <NotFound />
+    }
 
-  componentDidMount() {
-    this.performSearch(this.props.apiKey, this.props.tag);
-  }
-
-  render() {
-    let photoArray = this.state.photos.map(photo => {
-                   return <Photo  farm={photo.farm}
-                            server={photo.server}
-                            id={photo.id}
-                            secret={photo.secret}
-                            key={photo.id} />
-        });
     return (
-      <div className="photo-container">
-        <ul>
-          { photoArray }
-        </ul>
-      </div>
-    )
-  }
+        <div className="photo-container">
+            <h2>{props.match.params.query}</h2>
+            <ul>{photoArray}</ul>
+        </div>
+    );
 }
 
 export default PhotoContainer;
