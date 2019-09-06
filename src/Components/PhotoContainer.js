@@ -1,6 +1,7 @@
 import React from 'react';
 import NotFound from './NotFound';
 import Photo from './Photo';
+import { withRouter } from "react-router-dom";
 
 const PhotoContainer = props => {
     const photoData = props.photos;
@@ -17,12 +18,15 @@ const PhotoContainer = props => {
         photoArray = <NotFound />
     }
 
+    let path = props.history.location.pathname
+    let pageTitle = path.slice(8)
+
     return (
         <div className="photo-container">
-            <h2>{props.match.params.query}</h2>
+            <h2>{pageTitle}</h2>
             <ul>{photoArray}</ul>
         </div>
     );
 }
 
-export default PhotoContainer;
+export default withRouter(PhotoContainer);
