@@ -24,8 +24,12 @@ class App extends Component {
 
   componentDidMount() {
     let path = window.location.pathname
-    let query = path.slice(8)
-    this.performSearch(query)
+
+    if (path === '/') {
+      this.performSearch('swans')
+    } else {
+      this.performSearch(path.slice(8))
+    }
   }
 
   performSearch = (searchQuery) => {
@@ -53,7 +57,7 @@ class App extends Component {
                  ? <h3>Loading...</h3>
                  :
                  <Switch>
-                   <Route exact path="/" render={ () => <Redirect to={`/search/cats`}/>} />} />
+                   <Route exact path="/" render={ () => <Redirect to={`/search/swans`}/>} />} />
                    <Route exact path="/search/:query" render={(props) => <PhotoContainer {...props} photos={this.state.photos} />} />
                  </Switch>
              }

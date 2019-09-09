@@ -10,7 +10,7 @@ class Nav extends Component {
         return (
             <nav className="main-nav" >
                 <ul>
-                    <li><NavLink to='/search/cats' onClick={this.performSearch}>Cats</NavLink></li>
+                    <li><NavLink to='/search/swans' onClick={this.performSearch}>Swans</NavLink></li>
                     <li><NavLink to='/search/otters' onClick={this.performSearch} >Otters</NavLink></li>
                     <li><NavLink to='/search/monkeys' onClick={this.performSearch}>Monkeys</NavLink></li>
                     <li><NavLink to='/search/squirrels' onClick={this.performSearch}>Squirrels</NavLink></li>
