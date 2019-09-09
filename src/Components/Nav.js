@@ -11,7 +11,7 @@ class Nav extends Component {
             <nav className="main-nav" >
                 <ul>
                     <li><NavLink to='/search/cats' onClick={this.performSearch}>Cats</NavLink></li>
-                    <li><NavLink to='/search/dogs' onClick={this.performSearch} >Dogs</NavLink></li>
+                    <li><NavLink to='/search/otters' onClick={this.performSearch} >Otters</NavLink></li>
                     <li><NavLink to='/search/monkeys' onClick={this.performSearch}>Monkeys</NavLink></li>
                     <li><NavLink to='/search/squirrels' onClick={this.performSearch}>Squirrels</NavLink></li>
 
