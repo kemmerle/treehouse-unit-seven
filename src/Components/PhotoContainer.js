@@ -1,9 +1,8 @@
 import React from 'react';
 import NotFound from './NotFound';
 import Photo from './Photo';
-import { withRouter } from "react-router-dom";
 
-const PhotoContainer = props => {
+const PhotoContainer = (props) => {
     const photoData = props.photos;
     let photoArray;
 
@@ -18,7 +17,7 @@ const PhotoContainer = props => {
         photoArray = <NotFound />
     }
 
-    let path = props.history.location.pathname
+    let path = window.location.pathname
     let pageTitle = path.slice(8)
 
     return (
@@ -29,4 +28,4 @@ const PhotoContainer = props => {
     );
 }
 
-export default withRouter(PhotoContainer);
+export default PhotoContainer;
