@@ -1,15 +1,36 @@
+//Here I import React and its component Component, so that my SearchForm can be
+//stateful. I also import withRouter, a library that will allow me to change the
+//url path in my search submit.
+
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
 class SearchForm extends Component {
+  //Here in state, I set the searchText property as an empty string.
     state = {
         searchText: ''
     }
 
+    //The handleChange method tracks the user's query as he/she types it into
+    //the search bar. It then sets the searchText property in state to the user's
+    //query.
     handleChange = (event) => {
         this.setState({ searchText: event.target.value });
     }
 
+    //In the handleSubmit function, I first call preventDefault(), so that the
+    //the search doesn't submit or anything.
+
+    //I then set the query variable to the searchText property for readability.
+    //I then set the variable path to the search path I will use for all my searches.
+    //Using withRouter's native 'push' method, I then change the url path
+    //whenever a user submits a search.
+
+    //Then I call the performSearch method with the searchText property as its
+    //parameter. The performSearch method is carried out in the App container
+    //and the results this method returns are rendered there.
+
+    //Finally, I reset the search form by calling the event's native reset() method.
     handleSubmit = (event) => {
         event.preventDefault();
         let query = this.state.searchText;
@@ -21,6 +42,9 @@ class SearchForm extends Component {
     }
 
     render() {
+      //Here, I set my form's onSubmit function as the handleSubmit method I
+      //wrote above. I also set my input field's onChange function as the
+      //handleChange method I wrote above, as well. 
         return (
             <form className="search-form" onSubmit={this.handleSubmit}>
                 <input type="text"
