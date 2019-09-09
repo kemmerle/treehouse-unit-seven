@@ -1,3 +1,27 @@
+Project Description:
+I completed this project as a member of the Treehouse Apprenticeship Program (or TAP--formerly the Treehouse TalentPath program). Team Treehouse provided the html and css layouts, and I completed the logic in JavaScript.  
+
+For this project, I've built a React website through create-react-app to present a search engine by which a user can sort through Flickr images. The images are called from the Flickr API.    
+
+Motivation:
+The purpose of the project is to practice with the React library and making API calls with an API key.  
+
+Getting Started/Installation:
+Once you've downloaded the repo, navigate to its root directory in the terminal. Then enter the 'npm install' or 'yarn install' commands to install all dependencies.
+
+You will also need to create a config.js file in the /src folder and enter your Flickr API key in the file using the following format:
+
+const apiKey = 'YOUR API KEY';
+export default apiKey;
+
+After you complete these steps, you can enter 'npm start' to start the servers. Open your browser and navigate to: http://localhost:3000/.  
+
+Authors/Contributors:
+-Allison Kemmerle
+-Team Treehouse
+
+----
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
