@@ -23,10 +23,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.performSearch()
+    let path = window.location.pathname
+    let query = path.slice(8)
+    this.performSearch(query)
   }
 
-  performSearch = (searchQuery = 'cats') => {
+  performSearch = (searchQuery) => {
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchQuery}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
